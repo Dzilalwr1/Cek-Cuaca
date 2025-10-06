@@ -1,6 +1,6 @@
 # Weather Dashboard – JavaScript Dasar
 
-Proyek ini merupakan tugas akhir dari **Praktikum Pemrograman Web Pertemuan 4 (JavaScript Dasar)**.  
+Proyek ini merupakan tugas dari **Praktikum Pemrograman Web Pertemuan 4 (JavaScript Dasar)**.  
 Aplikasi ini menampilkan informasi cuaca berdasarkan nama kota yang dimasukkan pengguna.  
 Data cuaca menggunakan **data dummy** (simulasi) dan hasil output juga ditampilkan di **console log**.
 Karena ini hanya **data dummy** jadi hanya ada beberapa kota saja, diantaranya:
