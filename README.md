@@ -38,4 +38,4 @@ Aplikasi ini dibuat untuk memahami konsep dasar JavaScript seperti:
 ---
 
 ## Demo
-Dapat diakses melalui GitHub Pages: [Klik Disini](https://dzilalwr1.github.io/Cek-Cuaca/)
+Dapat diakses melalui GitHub Pages: [Klik Disini]( https://dzilalwr1.github.io/Cek-Cuaca/)
