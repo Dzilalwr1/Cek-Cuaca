@@ -1,47 +1,42 @@
-console.log("Script Praktikum Dijalankan");
+// Simulasi data cuaca (data dummy)
+const weatherData = {
+  "Jakarta": { temperature: 30, condition: "Cerah" },
+  "Bandung": { temperature: 25, condition: "Hujan Ringan" },
+  "Surabaya": { temperature: 33, condition: "Panas Terik" },
+  "Samarinda": { temperature: 28, condition: "Mendung" },
+  "Balikpapan": { temperature: 27, condition: "Berawan" }
+};
 
-// Variabel untuk menangkap elemen dari HTML
-const elNama = document.getElementById("nama-mhs");
-const elNilai = document.getElementById("nilai-mhs");
-const elStatus = document.getElementById("status-kelulusan");
+// Ambil elemen dari HTML
+const inputCity = document.getElementById("cityInput");
+const btnShow = document.getElementById("showWeatherBtn");
+const resultDiv = document.getElementById("weatherResult");
 
-// Mengambil input elemen
-const inputNama = document.getElementById("input-nama");
-const inputNilai = document.getElementById("input-nilai");
-
-// Menangani klik tombol submit
-document.getElementById("submit-btn").addEventListener("click", function () {
-  // Mendapatkan nilai input dari pengguna
-  const namaMahasiswa = inputNama.value;
-  const nilaiMahasiswa = parseInt(inputNilai.value);
-  let isLulus = false;
-  let pesanStatus = "";
-
-  // 1. Menampilkan Nama dan Nilai
-  elNama.textContent = namaMahasiswa;
-  console.log("Nama:", namaMahasiswa)
-  elNilai.textContent = nilaiMahasiswa;
-  console.log("Nilai:", nilaiMahasiswa)
-
-  // 2. Logika Kelulusan (if...else)
-  if (nilaiMahasiswa >= 75) {
-    pesanStatus = "Selamat, Anda Dinyatakan LULUS!";
-    isLulus = true;
-  } else {
-    pesanStatus = "Tetap Semangat, Anda HARUS Mengulang.";
-    isLulus = false;
+// Event ketika tombol diklik
+btnShow.addEventListener("click", function() {
+  const city = inputCity.value.trim();
+  
+  if (city === "") {
+    resultDiv.textContent = "Masukkan nama kota terlebih dahulu!";
+    console.log("Tidak ada input kota.");
+    return;
   }
 
-  // 3. Menampilkan status kelulusan
-  elStatus.textContent = pesanStatus;
-  console.log(pesanStatus)
+  const weather = weatherData[city];
 
-  // 4. Mengubah gaya berdasarkan status kelulusan
-  if (isLulus === true) {
-    elStatus.style.color = 'green';
-    elStatus.style.fontWeight = 'bold';
+  if (weather) {
+    const { temperature, condition } = weather;
+    resultDiv.innerHTML = `
+      <strong>Cuaca di ${city}:</strong><br>
+      Suhu: ${temperature}°C<br>
+      Kondisi: ${condition}
+    `;
+
+    console.log(`Cuaca di ${city}:`);
+    console.log(`Suhu: ${temperature}°C`);
+    console.log(`Kondisi: ${condition}`);
   } else {
-    elStatus.style.color = 'red';
-    elStatus.style.fontWeight = 'bold';
+    resultDiv.textContent = `Data cuaca untuk kota "${city}" tidak ditemukan.`;
+    console.log(`Data kota "${city}" tidak ditemukan.`);
   }
 });
